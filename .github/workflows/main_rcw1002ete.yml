@@ -48,9 +48,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
       contents: read #This is required for actions/checkout
@@ -68,9 +65,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_9F240B51C74F47C88EDB20B7E814776D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F5E2491A52994689AFB30BABD782D140 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_08985031507D4BBBA71F441067A16C71 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6658564E5064474DA0CDB2C72E1B6E85 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2F38E7085D464A12B864BE3F6FF968FF }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_CB46863C350542C4BB7169008D5842C1 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
